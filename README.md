@@ -38,12 +38,6 @@ The project uses containerized tools to ensure all commands run consistently acr
   - Docker installed
   - Make installed
 
-
-## Environment Variables
-
-Set the following environment variables before deployment:
-
-
 ## Installation
 
 ### Step 1: Run make install target:
@@ -59,6 +53,7 @@ azure_tenant_id=<your-tenant-id> \
 custom_domain=<your-domain.com> \
 make install
 ```
+This will kick off a complete deployment. 
 
 #### Step 2: Configure DNS
 
@@ -76,15 +71,14 @@ After updating the DNS records, allow 10-15 minutes for the changes to propagate
 dig lb.<your-domain.com> @8.8.8.8
 ```
 
-It may also take a few minutes for the Let's Encrypt certificate to be issued.
-
 ## Usage
 
 After installation, you can access:
 
-- The whoami application at `https://whoami.<your-domain.com>` (if DNS is configured)
+- The whoami application at `https://whoami.<your-domain.com>`
+> ⚠️ It may take a few minutes for the Let's Encrypt certificates to be issued. If you get a certificate error when accessing this endpoint, wait a few minutes and try refreshing.
 
-The kubernetes config file will be saved to .kubeconfig in the project's root directory. This can be used to interact with the AKS cluster.
+The kubernetes config file will be saved to `.kubeconfig` in the project's root directory. This can be used to interact with the AKS cluster.
 
 ## Cleanup
 
