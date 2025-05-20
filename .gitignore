@@ -1,0 +1,52 @@
+# ---- Terraform ----
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform/
+.terraform.lock.hcl
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+terraform.tfvars.json
+
+# ---- Kubernetes ----
+# Ignores common kubectl output and local config
+.kube/
+*.kubeconfig
+*.yaml~        # Backup files
+*.yml~         # Backup files
+.helm_cache/
+.helm_repository/
+
+# ---- Helm ----
+charts/
+tmpcharts/
+*.tgz
+Chart.lock
+.values.yaml
+.values.yaml~
+
+# ---- Vim ----
+*~
+*.swp
+*.swo
+*.swx
+*.un~
+.session
+.netrwhist
+
+# ---- macOS (optional, for local dev) ----
+.DS_Store
+
+# ---- Logs (optional) ----
+*.log
+
+# ---- Backup files ----
+*.bak
+*.backup
+*.old
+*.orig
+
+CLAUDE.md
