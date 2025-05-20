@@ -35,12 +35,22 @@ The project uses containerized tools to ensure all commands run consistently acr
 - Azure Service Principal with Contributor permissions (refer to the ['Create a Service Principal'](https://learn.microsoft.com/en-us/azure/developer/terraform/authenticate-to-azure-with-service-principle?tabs=bash#create-a-service-principal) section of this article.)
 - A custom domain name that you are able to configure nameserver(ns) records for.
 - A Linux environment with:
+  - Git installed
   - Docker installed
   - Make installed
 
 ## Installation
 
-### Step 1: Run make install target:
+### Step 1: Download the Repo:
+In your Linux environment, run these commands to download the aks-lab repo and change into the project directory:
+```bash
+git clone https://github.com/ostcrom/aks-lab.git
+cd aks-lab
+```
+
+>⚠️ All commands provided below should be run from within the `aks-lab` directory. 
+
+### Step 2: Run make install target:
 
 To install, you simply need to pass the relevant environment variables to the make command and run the install target:
 
@@ -55,7 +65,7 @@ make install
 ```
 This will kick off a complete deployment. 
 
-#### Step 2: Configure DNS
+#### Step 3: Configure DNS
 
 After deployment, the build output will display the DNS nameservers for your Azure DNS zone. You will need to update your domain registrar with these nameservers. You can also run this command to display the nameservers:
 
@@ -63,6 +73,7 @@ After deployment, the build output will display the DNS nameservers for your Azu
 source bin/docker-functions.sh
 cd terraform/azure
 terraform output dns_name_servers
+cd ../../
 ```
 
 After updating the DNS records, allow 10-15 minutes for the changes to propagate. You can check the status of your DNS records using:
