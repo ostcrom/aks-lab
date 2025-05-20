@@ -18,7 +18,7 @@ terraform.tfvars.json
 *.yaml~        # Backup files
 *.yml~         # Backup files
 .helm_cache/
-.helm_repository/
+.helm_config/
 
 # ---- Helm ----
 charts/
